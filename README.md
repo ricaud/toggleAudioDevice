@@ -1,4 +1,4 @@
-# toggleAudoDevice
+# toggleAudioDevice
 This small utility will toggle between two different audio devices. Made to be trigger by a single key on my keyboard (Windows only)
 
 change the "device1" and "device2" variables to the names of the devices you want to toggle between. Build toggleDevice.go, then run toggleDevice.exe to toggle between your two defined audio devices.
