@@ -21,14 +21,12 @@ jobs:
     - name: Build
       run: GOOS=windows go build -v ./...
     
-  release-windows-amd64:
-    name: release windows/amd64
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    - name: compile and release
-      uses: wangyoucao577/go-release-action@v1.18
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GOARCH: amd64
-        GOOS: windows
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: toggleDevice.exe
+        asset_name: toggleDevice.exe
+        tag: ${{ github.ref }}
+        overwrite: true
+        body: "this is the latest binary..."
